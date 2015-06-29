@@ -22,27 +22,30 @@ public class CounterSignDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String sql="select con_id from t_contract_process where state=2 and type=1 and user_id="+use_id;
+		String sql="select t_contract_process.con_id,t_contract.user_id,t_contract.customer,t_contract.name,t_contract.content,t_contract.beginTime,t_contract.endTime from t_contract_process,t_contract where "
+				+ "t_contract_process.con_id=t_contract.id and t_contract_process.state=2 and t_contract_process.type=1 and t_contract_process.user_id="+use_id;
 		
 		ResultSet rs=null;
 		rs = st.executeQuery(sql);
 		
+		
+		
 		while(rs.next())
 		{
+			
+			
 			Contract con1=new Contract();
 			con1.setId(rs.getInt("con_id"));
-			String sql1="select * from t_contract where id="+con1.getId();
-			ResultSet rs1=null;
-			rs1 = st.executeQuery(sql1);
-			rs1.next();
-			con1.setUseId(rs1.getInt("user_id"));
-			con1.setCustomer(rs1.getString("customer"));
-			con1.setName(rs1.getString("name"));
-			con1.setContent(rs1.getString("content"));
-			con1.setBeignTime(rs1.getString("beginTime"));
-			con1.setEndTime(rs1.getString("endTime"));
+			con1.setUseId(rs.getInt("user_id"));
+			con1.setCustomer(rs.getString("customer"));
+			con1.setName(rs.getString("name"));
+			con1.setContent(rs.getString("content"));
+			con1.setBeignTime(rs.getString("beginTime"));
+			con1.setEndTime(rs.getString("endTime"));
 			list.add(con1);
+			
 		}
+		
 		return list;
 	}
 	public static void hq(int use_id,int con_id,String content) throws SQLException{

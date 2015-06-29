@@ -337,7 +337,7 @@
                 </div>
                 <!-- /.row -->
             </div>
-            <form role="form" action="DraftServlet"  method="post"  >
+            <form role="form" action="DraftServlet"  method="post"  enctype="multipart/form-data">
                                         <div class="form-group">
                                             <label>合同名称：</label>
                                             <input style="size:20" class="form-control" id="ContractN" name="ContractN" >
