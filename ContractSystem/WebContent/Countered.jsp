@@ -368,6 +368,9 @@
                         <%if (state.get(i)==2) {%>
                         <td><span style="color: rgb(255,0,0)"> 等待其他人会签</span></td>
                         <%} %>
+                            <%if (state.get(i)==-1) {%>
+                          <td><span style="color: rgb(255,122,0)"> 合同审批被拒绝</span></td>
+                        <%} %>
                          <%if (state.get(i)==3) {%>
                         <td><span style="color: rgb(0,255,0)"> 等待定稿</span></td>
                         <%} %>
@@ -404,6 +407,10 @@
                                             <h4>开始时间：</h4><p><%=((Contract)contracts.get(i)).getBeignTime()%></p>
                                             <h4>结束时间：</h4><p><%=((Contract)contracts.get(i)).getEndTime()%></p>
                                             <h4>合同内容：</h4><p><%=((Contract)contracts.get(i)).getContent()%></p>
+                                          <% if(AttachDao.isAttach(((Contract)contracts.get(i)).getName())) {%>
+                                            <h4>下载附件：</h4>
+                                             <button type="button" class="btn btn-info" onclick="window.location.href='DownLoadServlet?name=<%= ((Contract)contracts.get(i)).getName()%>'">下载</button>
+                                            <%} %>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>

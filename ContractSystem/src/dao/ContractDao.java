@@ -29,13 +29,15 @@ public class ContractDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		rs.next();
-		int state=rs.getInt("type");
+		int state=0;
+		while(rs.next()){
+			state=rs.getInt("type");
+		}
 		return state;
 		
 	}
 	
-	public static ArrayList<String> getQdUser(int conid) throws SQLException{//获取合同的会签人
+	public static ArrayList<String> getQdUser(int conid) throws SQLException{//鑾峰彇鍚堝悓鐨勪細绛句汉
 		ArrayList<String> list=new ArrayList<String>();
 		Connection con = null;
 		try {
@@ -60,7 +62,7 @@ public class ContractDao {
 		}
 		return list;
 	}
-	public static ArrayList<String> getSpUser(int conid) throws SQLException{//获取合同的会签人
+	public static ArrayList<String> getSpUser(int conid) throws SQLException{//鑾峰彇鍚堝悓鐨勪細绛句汉
 		ArrayList<String> list=new ArrayList<String>();
 		Connection con = null;
 		try {
@@ -85,7 +87,7 @@ public class ContractDao {
 		}
 		return list;
 	}
-	public static ArrayList<String> getHqUser(int conid) throws SQLException{//获取合同的会签人
+	public static ArrayList<String> getHqUser(int conid) throws SQLException{//鑾峰彇鍚堝悓鐨勪細绛句汉
 		ArrayList<String> list=new ArrayList<String>();
 		Connection con = null;
 		try {
@@ -111,7 +113,7 @@ public class ContractDao {
 		return list;
 	}
 	
-	public static int getQdNum(int userid) throws SQLException{//得到需要签订的合同数
+	public static int getQdNum(int userid) throws SQLException{//寰楀埌闇�瑕佺璁㈢殑鍚堝悓鏁�
 		Connection con = null;
 		try {
 			con = DBUtil.getConnection();
@@ -142,7 +144,7 @@ public class ContractDao {
 		return num;
 		
 	}
-	public static int getSpNum(int userid) throws SQLException{//得到需要审批的人数
+	public static int getSpNum(int userid) throws SQLException{//寰楀埌闇�瑕佸鎵圭殑浜烘暟
 		Connection con = null;
 		try {
 			con = DBUtil.getConnection();
@@ -189,25 +191,17 @@ public class ContractDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-       String sql="select con_id from t_contract_state where type=3  ";
+       String sql="select count(*) from t_contract_state,t_contract where t_contract_state.con_id="
+       		+ "t_contract.id and t_contract_state.type=3 and t_contract.user_id= "+userid;
 		
 		ResultSet rs=null;
 		rs = st.executeQuery(sql);
 		
-		while(rs.next())
-		{
-			Contract con1=new Contract();
-			con1.setId(rs.getInt("con_id"));
-			String sql1="select * from t_contract where id="+con1.getId();
-			ResultSet rs1=null;
-			rs1 = st.executeQuery(sql1);
-			rs1.next();
-			con1.setUseId(rs1.getInt("user_id"));
-			if(con1.getUseId()==userid){
-			num++;
-			}
-	    }
+          rs.next();
+		
+		 num=rs.getInt(1);
 		return num;
+		
 		
 	}
 	public static int getHqNum(int userid) throws SQLException{

@@ -136,7 +136,8 @@ public class AllocateServlet extends HttpServlet {
 			}
 			AssignDao.assignqd(Integer.parseInt(id1), qduser.getId(),qdname.length);
 		}
-		response.sendRedirect("allocation.jsp");
+		//分配完成,之后通知下一步的会签人
+		response.sendRedirect("AllocateServlet?type=before");
 	}
 		//out.print("<script> alert('操作成功')</script>");
 		

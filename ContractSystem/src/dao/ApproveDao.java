@@ -120,7 +120,7 @@ public class ApproveDao {
 		
 		
 		String sql="select t_contract_process.con_id,t_contract.user_id,t_contract.customer,t_contract.name,t_contract.content,t_contract.beginTime,t_contract.endTime from t_contract_process,t_contract,t_contract_state where "
-				+ "t_contract_process.con_id=t_contract.id and t_contract_process.con_id=t_contract_state.con_id and t_contract_state.type=4 and t_contract_process.state=1 and t_contract_process.type=2 and user_id="+use_id;
+				+ "t_contract_process.con_id=t_contract.id and t_contract_process.con_id=t_contract_state.con_id and t_contract_state.type=4 and t_contract_process.state=1 and t_contract_process.type=2 and t_contract_process.user_id="+use_id;
 		
 		ResultSet rs=null;
 		rs = st.executeQuery(sql);

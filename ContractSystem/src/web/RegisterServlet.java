@@ -69,6 +69,7 @@ public class RegisterServlet extends HttpServlet {
 					if(uservice.register(account, email))//检测是否可以使用
 					{
 					String login_suc = "resucess.jsp";
+					
 					response.sendRedirect(login_suc);
 					return;
 					}
