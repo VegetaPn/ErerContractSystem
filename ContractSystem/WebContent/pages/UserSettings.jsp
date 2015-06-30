@@ -249,7 +249,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="login.jsp"><i class="fa fa-sign-out fa-fw"></i> 注销用户</a>
+                        <li><a href="../login.jsp"><i class="fa fa-sign-out fa-fw"></i> 注销用户</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -311,15 +311,18 @@
         <%int id = (int)session.getAttribute("userid"); %>
         <%String rolename = (String)session.getAttribute("rolename"); %>
         <%String roledesc = (String)session.getAttribute("roledesc"); %>
-        <form method="post" action="UserProfileServlet">
+        <form method="post" action="../UserProfileServlet">
          <div id="page-wrapper" class="panel panel-default">
                         <div class="panel-heading">
                         </div>
                         <div class="panel-body">
-                        	<h2>用户名:
+                        	<h3>用户名:
                         	<input id="upname" name="upname" type="text" value=<%=name %> /> 
-                            </h2>
-                            <button type="submit" class="btn btn-default">保存用户名</button>
+                            </h3>
+                            <h3>更新密码(可选):
+                        	<input id="uppwd" name="uppwd" type="password" /> 
+                            </h3>
+                            <button type="submit" class="btn btn-default">保存</button>
                         </div>
                         </form>
                         <form method="post" action="PermissionServlet">

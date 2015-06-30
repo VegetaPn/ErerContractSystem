@@ -389,10 +389,13 @@
          <div id="page-wrapper" class="panel panel-default">
         <form method="post" action="UserProfileServlet">
                         <div class="panel-body">
-                        	<h2>用户名:
+                        	<h3>用户名:
                         	<input id="upname" name="upname" type="text" value=<%=name %> /> 
-                            </h2>
-                            <button type="submit" class="btn btn-default">保存用户名</button>
+                            </h3>
+                            <h3>更新密码(可选):
+                        	<input id="uppwd" name="uppwd" type="password" /> 
+                            </h3>
+                            <button type="submit" class="btn btn-default">保存</button>
                         </div>
                         </form>
                         <form method="post" action="PermissionServlet">

@@ -63,4 +63,7 @@ public class UserService {
 	public String[] getallUserNames() {
 		return UserDao.getallUserNames();
 	}
+	public boolean updatePassword(String uid, String upPwd) {
+		return UserDao.updatePassword(uid, upPwd);
+	}
 }

@@ -1,6 +1,7 @@
 package web;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -9,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import org.apache.jasper.tagplugins.jstl.core.Out;
 
 import service.UserService;
 
@@ -47,12 +50,22 @@ public class UserProfileServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
+		request.setCharacterEncoding("utf-8");
 		UserService us = new UserService();
 		String userid = session.getAttribute("userid").toString();
 		String upName = request.getParameter("upname");
+		String upPwd = request.getParameter("uppwd");
 		us.updateUserName(userid, upName);
+		if (upPwd != null)
+		{
+			us.updatePassword(userid, upPwd);
+		}
+		
 		session.setAttribute("username", upName);
-		response.sendRedirect("logsuccess.jsp");
+		
+		PrintWriter out = response.getWriter();
+		
+		response.sendRedirect(request.getHeader("Referer"));
 	}
 
 }

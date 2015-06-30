@@ -327,5 +327,27 @@ public class UserDao {
 		}
 		return false;
 	}
+	
+	public static boolean updatePassword(String uid, String upPwd) {
+		Connection con = null;
+		try {
+			con = DBUtil.getConnection();
+		} catch (APPException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		Statement st = null;
+		try {
+			st = con.createStatement();
+			String sql = "update t_user set password = '"+upPwd+"' where id='"+ uid +"' ";
+			System.out.println(sql);
+			ResultSet rs = null;
+			rs = st.executeQuery(sql);
+			return true;
+		} catch (SQLException e) {
+			
+		}
+		return false;
+	}
 }
 		
