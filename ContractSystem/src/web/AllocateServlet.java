@@ -137,6 +137,28 @@ public class AllocateServlet extends HttpServlet {
 			AssignDao.assignqd(Integer.parseInt(id1), qduser.getId(),qdname.length);
 		}
 		//分配完成,之后通知下一步的会签人
+		
+		//id1//合同id
+		ArrayList<String> hquser = null;
+		try {
+			hquser=ContractDao.getHqUser(Integer.parseInt(id1));
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String mail = null;
+		for(int e=0;e<hquser.size();e++){
+			try {
+				mail=ContractDao.getMailByName(hquser.get(e));
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			SendMailDao.send(mail, "尊敬的用户"+hquser.get(e)+"您有新消息了", "您有一份合同需要会签，请登录小二二管理系统进行会签");
+		}
 		response.sendRedirect("AllocateServlet?type=before");
 	}
 		//out.print("<script> alert('操作成功')</script>");

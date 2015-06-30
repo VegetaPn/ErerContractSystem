@@ -44,7 +44,11 @@
      ArrayList<String> name2;//审核人
      ArrayList<String> name3;//签订人
     %>
-
+    <%@page import = "dao.LogDao"%>
+        <%String apath = this.getServletContext().getRealPath("");
+          String uname = (String) session.getAttribute("username");
+          LogDao.addaLog("Allocate a contract:"+conname, apath, uname);
+        %>
 </head>
 
 <body>

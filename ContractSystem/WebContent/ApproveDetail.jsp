@@ -38,7 +38,11 @@
    String time=(String)request.getAttribute("time");
    String content=(String)request.getAttribute("content");
    %>
-   
+   <%@page import = "dao.LogDao"%>
+        <%String apath = this.getServletContext().getRealPath("");
+          String uname = (String) session.getAttribute("username");
+          LogDao.addaLog("审批了合同"+conname, apath, uname);
+        %>
 </head>
 
 <body>
@@ -337,7 +341,7 @@
                 <div class="row">
                 
                     <div class="col-lg-12">
-                        <h1 class="page-header">合同签订</h1>
+                        <h1 class="page-header">合同审批</h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>

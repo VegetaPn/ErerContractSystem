@@ -6,6 +6,61 @@ import java.util.*;
 import utils.*;
 import model.*;
 public class ContractDao {
+	public static int getuseIdByconid(int con_id)throws SQLException{
+		Connection con = null;
+		try {
+			con = DBUtil.getConnection();
+		} catch (APPException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		Statement st = null;
+		try {
+			st = con.createStatement();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String sql="select user_id from t_contract where id="+con_id;
+		ResultSet rs=null;
+		try {
+			rs = st.executeQuery(sql);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		rs.next();
+		return rs.getInt(1);
+		
+		
+	}
+	public static String getMailByName(String name)throws SQLException{
+		Connection con = null;
+		try {
+			con = DBUtil.getConnection();
+		} catch (APPException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		Statement st = null;
+		try {
+			st = con.createStatement();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String sql="select t_customer.fax from t_customer,t_user where t_customer.num=t_user.id and t_user.name='"+name+"'";
+		ResultSet rs=null;
+		try {
+			rs = st.executeQuery(sql);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		rs.next();
+		return rs.getString(1);
+		
+	}
 	public static int getStateByID(int con_id) throws SQLException{
 		Connection con = null;
 		try {

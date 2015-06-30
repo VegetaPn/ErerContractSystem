@@ -88,6 +88,26 @@ public class ApproveDao {
 		int qdnum=rs.getInt("del");//读取签订的人数
 		String sql5="update t_contract_state set del="+qdnum+"where con_id="+con_id;
 		st.execute(sql5);
+		ArrayList<String> qduser = null;
+		try {
+			qduser=ContractDao.getQdUser(con_id);
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		String mail = null;
+		for(int e=0;e<qduser.size();e++){
+			try {
+				mail=ContractDao.getMailByName(qduser.get(e));
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			SendMailDao.send(mail, "尊敬的用户"+qduser.get(e)+"您有新消息了", "您有一份合同需要签订，请登录小二二管理系统进行签订");
+		}
 		}else{//还有其他会签人
 			String sql6="update t_contract_state set del="+spnum+"where con_id="+con_id+"and type=4";
 			st.execute(sql6);

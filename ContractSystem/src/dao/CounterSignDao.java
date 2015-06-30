@@ -87,6 +87,13 @@ public class CounterSignDao {
 		int spnum=rs.getInt("del");//读取审批的人数
 		String sql5="update t_contract_state set del="+spnum+"where con_id="+con_id;
 		st.execute(sql5);
+		//发送信息给定稿人
+		int id4=ContractDao.getuseIdByconid(con_id);
+		
+			String	mail=ContractDao.getMailByName(UserDao.getNameByID(id4));
+			
+			SendMailDao.send(mail, "尊敬的用户"+UserDao.getNameByID(id4)+"您有新消息了", "您有一份合同需要定稿，请登录小二二管理系统进行定稿");
+		
 		}else{//还有其他会签人
 			String sql6="update t_contract_state set del="+hqnum+"where con_id="+con_id+"and type=2";
 			st.execute(sql6);

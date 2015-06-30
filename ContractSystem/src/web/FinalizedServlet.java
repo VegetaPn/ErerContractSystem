@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.ContractDao;
 import dao.FinalizedDao;
+import dao.SendMailDao;
 import model.ConProcess;
 import model.Contract;
 
@@ -99,7 +100,27 @@ public class FinalizedServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			response.sendRedirect("contract.jsp");
+			ArrayList<String> spuser = null;
+			try {
+				spuser=ContractDao.getSpUser(Integer.parseInt(conid));
+			} catch (NumberFormatException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			String mail = null;
+			for(int e=0;e<spuser.size();e++){
+				try {
+					mail=ContractDao.getMailByName(spuser.get(e));
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				SendMailDao.send(mail, "尊敬的用户"+spuser.get(e)+"您有新消息了", "您有一份合同需要审批，请登录小二二管理系统进行审批");
+			}
+			response.sendRedirect("FinalizedServlet?type=before");
 		}else if(type.equals("after")){
          try {
 				

@@ -37,7 +37,11 @@
       String conid=(String)request.getAttribute("conid");
    String time=(String)request.getAttribute("time");
    %>
-   
+   <%@page import = "dao.LogDao"%>
+        <%String apath = this.getServletContext().getRealPath("");
+          String uname = (String) session.getAttribute("username");
+          LogDao.addaLog("CounterSign a contract:"+conname, apath, uname);
+        %>
 </head>
 
 <body>

@@ -106,7 +106,7 @@ public class ApproveServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 			
-			response.sendRedirect("contract.jsp");
+			response.sendRedirect("ApproveServlet?type=before");
 			
 		}else if(type.equals("after")){
 			 try {

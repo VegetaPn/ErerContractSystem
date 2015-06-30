@@ -89,7 +89,7 @@ public class CounterSignServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 			
-			response.sendRedirect("contract.jsp");
+			response.sendRedirect("CounterSignServlet?type=before");
 		}else if(type.equals("after")){//查看已会签的合同
 			if(!CounterSignDao.counterSignRight(userid)){//没有会签权限的时候
 				response.sendRedirect("noright.jsp");

@@ -38,7 +38,11 @@
    String time=(String)request.getAttribute("time");
    String content=(String)request.getAttribute("content");
    %>
-   
+   <%@page import = "dao.LogDao"%>
+        <%String apath = this.getServletContext().getRealPath("");
+          String uname = (String) session.getAttribute("username");
+          LogDao.addaLog("Sign a contract:"+conname, apath, uname);
+        %>
 </head>
 
 <body>
