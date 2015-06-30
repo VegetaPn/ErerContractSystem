@@ -335,7 +335,7 @@
           String cbank = customer.getBank();
           String ccct = customer.getAccount(); 
         %>
-        <form method="post" action="../CustomerServlet">
+        <form method="post" action="CustomerServlet?type=op">
         <div id="page-wrapper" class="panel panel-default">
         	<%//out.println(cname+"<br />"); %>
         	<%//out.println(uname+"||"+cname+"||"+cadd+"||"+ctel+"||"+cfax+"||"+ccode+"||"+cbank+"||"+ccct); %>

@@ -69,7 +69,7 @@ public class DraftDao {
 		//System.out.print(path);
 		// java.text.DateFormat timestyle = new java.text.SimpleDateFormat("yyyy-MM-dd");
 		try{
-			if(path==null){//path为空,没有附件
+			//if(path==null){//path为空,没有附件
 		
 				String sql_contract="insert into t_contract(id,num,name,user_id,customer,content,beginTime,endTime,del) values("+new_contract.getId()+",'"+new_contract.getNum()+"','"+con_name+"',"+userid+",'"+customer+"','"+content+"','"+btime+"','"+etime+"',"+new_contract.getDel()+")";
 			System.out.println(sql_contract);
@@ -79,11 +79,11 @@ public class DraftDao {
 			rs.next();
 			contract_id=rs.getInt("id");
 			System.out.println(contract_id);
-			}else{//如果有附件的话要加文件的内容，加入到路径表中
-				String sql_contract="insert into t_contract(id,num,name,user_id,customer,content,beginTime,endTime,del) values("+new_contract.getId()+",'"+new_contract.getNum()+"','"+con_name+"',"+userid+",'"+customer+"','"+path+"','"+btime+"','"+etime+"',"+new_contract.getDel()+")";
+			//}else{//如果有附件的话要加文件的内容，加入到路径表中
+			/*String sql_contract="insert into t_contract(id,num,name,user_id,customer,content,beginTime,endTime,del) values("+new_contract.getId()+",'"+new_contract.getNum()+"','"+con_name+"',"+userid+",'"+customer+"','"+path+"','"+btime+"','"+etime+"',"+new_contract.getDel()+")";
 				st.execute(sql_contract);
 				
-			}
+			}*/
 			//String sql_conProcess="insert into t_contract_process values("+new_conprocess.getId()+","+new_contract.getId()+","+new_user.getId()+","+1+","+1+",'"+new_conprocess.getContent()+"',now(),"+new_conprocess.getDel()+");";
 			//st.execute(sql_conProcess);
 			String sql_conState="insert into t_contract_state values("+new_contract.getId()+","+contract_id+","+1+",default,"+new_constate.getDel()+")";

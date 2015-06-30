@@ -38,14 +38,18 @@ public class CustomerServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
+		String type=request.getParameter("type");
 		
 		CustomerService cs = new CustomerService();
 		
 		cs.editaCustomer(request.getParameter("uname"), request.getParameter("upcname"), request.getParameter("upcaddress"), 
 				request.getParameter("upctel"), request.getParameter("upcfax"), request.getParameter("upccode"),
 				request.getParameter("upcbank"), request.getParameter("upcaccount"));
-		
-		response.sendRedirect("pages/CustomerManage.jsp");
+		if(type.equals("op")){
+		response.sendRedirect("contract.jsp");
+		}else{
+			response.sendRedirect("pages/CustomerManage.jsp");
+		}
 	}
 
 }
