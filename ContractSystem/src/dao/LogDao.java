@@ -17,17 +17,17 @@ import java.util.Set;
 
 public class LogDao {
 	static int prelines = 324;
-	static int tdnum = 8;
+	static int tdnum = 1000;
 	static int uplimit = prelines + tdnum + 31;
 	static int count = 0;
 	static String logPathString = null;
 
-	public static boolean addaLog(String logstring, String apath) {
+	public static boolean addaLog(String logstring, String apath, String uname) {
 		count = 0;
 		logPathString = apath + "pages/LogManage.jsp";
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String str = "<tr><td>" + df.format(new Date()) + "</td>" + "<td>"
-				+ logstring + "</td>" + "<td><Button>Detele</Button></td></tr>";
+				+ logstring + "</td>" + "<td>"+uname+"</td></tr>";
 
 		try {
 			BufferedReader first = new BufferedReader(new FileReader(

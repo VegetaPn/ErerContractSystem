@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.LogDao;
 import service.RoleService;
 import model.Role;
 
@@ -73,6 +74,8 @@ public class AddRoleServlet extends HttpServlet {
 		
 		rs.addaRole(newRole);
 		
-		response.sendRedirect("logsuccess.jsp");
+		//LogDao.addaLog("Enter the Role-Manage page", (String) request.getAttribute("apath"), (String) request.getSession().getAttribute("username"));
+		
+		response.sendRedirect("RoleManage.jsp");
 	}
 }

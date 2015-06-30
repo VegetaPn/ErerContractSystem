@@ -319,17 +319,9 @@
 <thead>
 <th>时间</th>
 <th>记录</th>
-<th>操作</th>
+<th>操作人</th>
 </thead>
 <tbody>
-<tr><td>2015-06-27 20:48:11</td><td>haha7</td><td><Button>删除</Button></td></tr>
-<tr><td>2015-06-27 20:47:55</td><td>haha6</td><td><Button>删除</Button></td></tr>
-<tr><td>2015-06-27 20:47:54</td><td>haha6</td><td><Button>删除</Button></td></tr>
-<tr><td>2015-06-27 20:47:53</td><td>haha6</td><td><Button>删除</Button></td></tr>
-<tr><td>2015-06-27 20:47:51</td><td>haha6</td><td><Button>删除</Button></td></tr>
-<tr><td>2015-06-27 20:47:50</td><td>haha6</td><td><Button>删除</Button></td></tr>
-<tr><td>2015-06-27 20:47:34</td><td>haha6</td><td><Button>删除</Button></td></tr>
-<tr><td>2015-06-27 20:47:10</td><td>haha5</td><td><Button>删除</Button></td></tr>
 </tbody>
 	            </table>
 	        </div>

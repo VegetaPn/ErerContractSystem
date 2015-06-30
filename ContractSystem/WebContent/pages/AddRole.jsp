@@ -309,6 +309,7 @@
         <!-- Page Content -->
         <div id="page-wrapper" class="panel panel-default">
         <form method="post" action="../AddRoleServlet">
+        <%request.setAttribute("apath", this.getServletContext().getRealPath("")); %>
 			<table class="update" style="width:700px;">
 				<tr height="28">
 					<td width="100">角色名:</td>
