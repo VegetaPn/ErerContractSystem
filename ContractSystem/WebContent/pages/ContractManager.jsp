@@ -316,6 +316,11 @@
         <!-- Page Content -->
         <%@page import="service.CustomerService, model.Customer, service.UserService" %>
         <%@page import="service.ContractService, model.Contract" %>
+        <%@page import = "dao.LogDao"%>
+        <%String apath = this.getServletContext().getRealPath("");
+          String uname = (String) session.getAttribute("username");
+          LogDao.addaLog("Enter Contract-Manage page", apath, uname);
+        %>
         <%ContractService cs = new ContractService();
           UserService us = new UserService();
         %>

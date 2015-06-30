@@ -307,6 +307,11 @@
         </nav>
 
         <!-- Page Content -->
+        <%@page import = "dao.LogDao"%>
+        <%String apath = this.getServletContext().getRealPath("");
+          String uname = (String) session.getAttribute("username");
+          LogDao.addaLog("Enter Role-Settings page", apath, uname);
+        %>
         <div id="page-wrapper" class="panel panel-default">
         <form method="post" action="../EditRoleServlet">
         	<input type="text" style="display:none" name="uproleid" value="<%=request.getParameter("paramid") %>" />

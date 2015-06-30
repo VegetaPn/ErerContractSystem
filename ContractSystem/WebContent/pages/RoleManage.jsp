@@ -334,9 +334,10 @@
                                     <%UserService us = new UserService();
                                       RoleService rs = new RoleService();
                                       ResultSet ars = rs.getallRoleSet();
-                                      //String apath = this.getServletContext().getRealPath("");
                                       
-                                      //LogDao.addaLog("Enter the Role-Manage page", apath);
+                                      String apath = this.getServletContext().getRealPath("");
+                                      String uname = (String) session.getAttribute("username");
+                                      LogDao.addaLog("Enter Role-Manage page", apath, uname);
                                  
                                       ResultSetMetaData m = ars.getMetaData();
                                       int col = m.getColumnCount();

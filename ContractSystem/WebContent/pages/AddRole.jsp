@@ -308,6 +308,11 @@
 
         <!-- Page Content -->
         <div id="page-wrapper" class="panel panel-default">
+        <%@page import = "dao.LogDao"%>
+        <%String apath = this.getServletContext().getRealPath("");
+          String uname = (String) session.getAttribute("username");
+          LogDao.addaLog("Enter Role-Manage page", apath, uname);
+        %>
         <form method="post" action="../AddRoleServlet">
         <%request.setAttribute("apath", this.getServletContext().getRealPath("")); %>
 			<table class="update" style="width:700px;">

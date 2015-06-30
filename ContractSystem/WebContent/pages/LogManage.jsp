@@ -319,7 +319,7 @@
 <thead>
 <th>时间</th>
 <th>记录</th>
-<th>操作人</th>
+<th>用户</th>
 </thead>
 <tbody>
 </tbody>

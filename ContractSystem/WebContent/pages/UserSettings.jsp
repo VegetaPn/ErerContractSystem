@@ -311,6 +311,11 @@
         <%int id = (int)session.getAttribute("userid"); %>
         <%String rolename = (String)session.getAttribute("rolename"); %>
         <%String roledesc = (String)session.getAttribute("roledesc"); %>
+        <%@page import = "dao.LogDao"%>
+        <%String apath = this.getServletContext().getRealPath("");
+          String uname = (String) session.getAttribute("username");
+          LogDao.addaLog("Enter User-Settings page", apath, uname);
+        %>
         <form method="post" action="../UserProfileServlet">
          <div id="page-wrapper" class="panel panel-default">
                         <div class="panel-heading">

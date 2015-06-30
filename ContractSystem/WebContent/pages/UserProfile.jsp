@@ -308,6 +308,11 @@
 
         <!-- Page Content -->
         <%@page import="service.CustomerService, model.Customer, service.UserService" %>
+        <%@page import = "dao.LogDao"%>
+        <%String apath = this.getServletContext().getRealPath("");
+          String usname = (String) session.getAttribute("username");
+          LogDao.addaLog("Enter Role-Profile page", apath, usname);
+        %>
         <%CustomerService cs = new CustomerService();
           int uid = (int) session.getAttribute("userid");
           UserService us = new UserService(); 
