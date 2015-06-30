@@ -335,7 +335,7 @@
                             <button type="submit" class="btn btn-default">保存</button>
                         </div>
                         </form>
-                        <form method="post" action="PermissionServlet">
+                        <form method="post" action="../PermissionServlet">
                         <div class="panel-body">
                             <div class="table-responsive">
                                 <table class="table">

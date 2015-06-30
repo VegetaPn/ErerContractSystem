@@ -76,6 +76,6 @@ public class AddRoleServlet extends HttpServlet {
 		
 		//LogDao.addaLog("Enter the Role-Manage page", (String) request.getAttribute("apath"), (String) request.getSession().getAttribute("username"));
 		
-		response.sendRedirect("RoleManage.jsp");
+		response.sendRedirect("pages/RoleManage.jsp");
 	}
 }

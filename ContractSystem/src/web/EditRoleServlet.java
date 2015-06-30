@@ -66,7 +66,7 @@ public class EditRoleServlet extends HttpServlet {
 		
 		rs.editaRole(newRole);
 		
-		response.sendRedirect("logsuccess.jsp");
+		response.sendRedirect("pages/RoleManage.jsp");
 	}
 
 }

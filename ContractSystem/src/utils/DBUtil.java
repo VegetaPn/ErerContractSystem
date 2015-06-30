@@ -7,8 +7,10 @@ import java.sql.Statement;
 public class DBUtil {
 //private String url="jdbc:mysql://127.0.0.1:3306/contractda?useunicode";
 	public static String url = "jdbc:oracle:thin:@172.31.34.13:1521:orcl";
-	public static String user = "contractor"; // 用户名
-	public static String password = "con"; //密码 
+	public static String user = "\"contract\""; // 用户名
+	public static String password = "\"con\""; //密码 
+	//public static String user = "contractor"; // 用户名
+	//public static String password = "con"; //密码 
 	static{
 	try {
 		Class.forName("oracle.jdbc.driver.OracleDriver");  //隐式注册

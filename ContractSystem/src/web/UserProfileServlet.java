@@ -65,7 +65,7 @@ public class UserProfileServlet extends HttpServlet {
 		
 		PrintWriter out = response.getWriter();
 		
-		response.sendRedirect(request.getHeader("Referer"));
+		response.sendRedirect("pages/UserSettings.jsp");
 	}
 
 }
