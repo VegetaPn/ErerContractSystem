@@ -63,8 +63,8 @@ public class DraftServlet extends HttpServlet {
 		  String path=request.getParameter("AFile");
 		  System.out.println(ETime);
 		  String text= request.getParameter("text1");
-		  
-		  
+		  System.out.println(path);
+		  //if(path!=null){
 		  try{
 			  	
 				 //use sessionid to create a temp file.
@@ -180,7 +180,7 @@ public class DraftServlet extends HttpServlet {
 				 e.printStackTrace();
 				}
 		  
-		  
+		 // }
 		 //System.out.println("wocaonima "+ContractN+CunName+path);
 		 // DateFormat df = new SimpleDateFormat("MM/dd/yyyy");//参数为你要格式化时间日期的模式
 		  try{
