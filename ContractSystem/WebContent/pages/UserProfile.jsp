@@ -307,35 +307,78 @@
         </nav>
 
         <!-- Page Content -->
-        
-        <%String name = (String)session.getAttribute("username"); %>
-        <%int id = (int)session.getAttribute("userid"); %>
-        <%String rolename = (String)session.getAttribute("rolename"); %>
-        <%String roledesc = (String)session.getAttribute("roledesc"); %>
+        <%@page import="service.CustomerService, model.Customer, service.UserService" %>
+        <%CustomerService cs = new CustomerService();
+          int uid = (int) session.getAttribute("userid");
+          UserService us = new UserService(); 
+          Customer customer = cs.getCustomerbyUserID(uid+"");
+        %>
+        <%
+          String uname = (String) session.getAttribute("username");
+       	  String cname = customer.getName();
+          String cadd = customer.getAdress();
+          String ctel = customer.getTel();
+          String cfax = customer.getFax();
+          String ccode = customer.getCode();
+          String cbank = customer.getBank();
+          String ccct = customer.getAccount(); 
+        %>
+        <form method="post" action="../CustomerServlet">
         <div id="page-wrapper" class="panel panel-default">
-                        <div class="panel-heading">
-                           	 个人信息
-                        </div>
-                        <div class="panel-body">
-                        	用户名：<input type="text">
-                        	<h2>用户ID:
-                                <%=id %>
-                            </h2>
-                            <h2>用户名:
-                                <%=name %>
-                            </h2>
-                            <h2>用户角色:
-                                <%=rolename %>
-                            </h2>
-                            <h2>角色描述:
-                                <%=roledesc %>
-                            </h2>
-                        </div>
-                        <!-- /.panel-body -->
-            	</div>
-                    
-                <!-- /.col-lg-12 -->
-            </div>
+        	<%//out.println(cname+"<br />"); %>
+        	<%//out.println(uname+"||"+cname+"||"+cadd+"||"+ctel+"||"+cfax+"||"+ccode+"||"+cbank+"||"+ccct); %>
+        	<%//=request.getParameter("cname") %>
+        	<table style="width:700px;">
+        		<tr height="28">
+					<td width="140px">用户名:</td>
+					<td><input type="text" name="uname" readonly value=<%=uname %> /></td>
+				</tr>
+				<tr height="28">
+					<td width="140px">客户名:</td>
+					<td><input type="text" name="upcname" value=<%=cname %> /></td>
+				</tr>
+				<tr height="28">
+					<td>电话:</td>
+					<td><input type="text" name="upctel" value=<%=ctel %> /></td>
+				</tr>
+				<tr height="28">
+					<td>地址:</td>
+					<td><input type="text" name="upcaddress" value=<%=cadd %> /></td>
+				</tr>
+				<tr height="28">
+					<td>邮箱:</td>
+					<td><input type="text" name="upcfax" value=<%=cfax %> /></td>
+				</tr>
+				<tr height="28">
+					<td>编码:</td>
+					<td><input type="text" name="upccode" value=<%=ccode %> /></td>
+				</tr>
+				<tr height="28">
+					<td>银行名:</td>
+					<td><input type="text" name="upcbank" value=<%=cbank %> /></td>
+				</tr>
+				<tr height="28">
+					<td>银行卡号:</td>
+					<td><input type="text" name="upcaccount" value=<%=ccct %> /></td>
+				</tr>
+				<tr>
+					<td>Remark:</td>
+					<td>
+						<textarea rows="4" cols="40" name="content" style="width:400px;height:100px;">
+						
+						</textarea>
+					</td>
+				</tr>
+				
+				<tr height="28">
+					<td align="center" colspan="2">
+						<input type="submit" value="保存" class="button"> &nbsp; &nbsp; &nbsp;
+						<input type="reset" value="清空" class="button">
+					</td>
+				</tr>
+			</table>
+        </div>
+        </form>
     <!-- jQuery -->
     <script src="../bower_components/jquery/dist/jquery.min.js"></script>
 

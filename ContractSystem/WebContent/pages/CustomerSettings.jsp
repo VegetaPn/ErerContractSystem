@@ -376,8 +376,8 @@
 				
 				<tr height="28">
 					<td align="center" colspan="2">
-						<input type="submit" value="Submit" class="button"> &nbsp; &nbsp; &nbsp;
-						<input type="reset" value="Reset" class="button">
+						<input type="submit" value="保存" class="button"> &nbsp; &nbsp; &nbsp;
+						<input type="reset" value="清空" class="button">
 					</td>
 				</tr>
 			</table>

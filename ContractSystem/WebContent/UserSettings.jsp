@@ -386,10 +386,8 @@
         <%int id = (int)session.getAttribute("userid"); %>
         <%String rolename = (String)session.getAttribute("rolename"); %>
         <%String roledesc = (String)session.getAttribute("roledesc"); %>
-        <form method="post" action="UserProfileServlet">
          <div id="page-wrapper" class="panel panel-default">
-                        <div class="panel-heading">
-                        </div>
+        <form method="post" action="UserProfileServlet">
                         <div class="panel-body">
                         	<h2>用户名:
                         	<input id="upname" name="upname" type="text" value=<%=name %> /> 
