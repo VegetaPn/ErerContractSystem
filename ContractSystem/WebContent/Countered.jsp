@@ -241,7 +241,7 @@
                   
                         <li><a href="UserProfile.jsp"><i class="fa fa-user fa-fw"></i> <%=name1 %></a>
                         </li>
-                        <li><a href="../UserSettings.jsp"><i class="fa fa-gear fa-fw"></i> 完善个人信息</a>
+                        <li><a href="UserSettings.jsp"><i class="fa fa-gear fa-fw"></i> 完善个人信息</a>
                         </li>
                         <li class="divider"></li>
                         <li><a href="login.jsp"><i class="fa fa-sign-out fa-fw"></i> 注销用户</a>

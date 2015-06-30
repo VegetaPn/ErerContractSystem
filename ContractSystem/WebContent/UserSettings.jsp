@@ -33,8 +33,9 @@
 </head>
 <body>
 
-    <div id="wrapper">
-
+   <div id="wrapper">
+ <%String name1 = (String)session.getAttribute("username"); %>
+   
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
@@ -44,7 +45,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">设置</a>
+                <a class="navbar-brand" href="#">合同管理系统</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -57,9 +58,21 @@
                         <li>
                             <a href="#">
                                 <div>
-                                    <strong>John Smith</strong>
+                                    <strong>孔祥远</strong>
                                     <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
+                                        <em>昨天</em>
+                                    </span>
+                                </div>
+                                <div>我起草了一个合同，希望可以尽快分配</div>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">
+                                <div>
+                                    <strong>延昊南</strong>
+                                    <span class="pull-right text-muted">
+                                        <em>昨天</em>
                                     </span>
                                 </div>
                                 <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
@@ -69,33 +82,15 @@
                         <li>
                             <a href="#">
                                 <div>
-                                    <strong>John Smith</strong>
+                                    <strong>管理员</strong>
                                     <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
+                                        <em>昨天</em>
                                     </span>
                                 </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
+                                <div>我分配了3个合同</div>
                             </a>
                         </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <strong>John Smith</strong>
-                                    <span class="pull-right text-muted">
-                                        <em>Yesterday</em>
-                                    </span>
-                                </div>
-                                <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...</div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>Read All Messages</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
+                        
                     </ul>
                     <!-- /.dropdown-messages -->
                 </li>
@@ -170,8 +165,8 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a class="text-center" href="#">
-                                <strong>See All Tasks</strong>
+                            <a class="text-center" href="StateServlet?type=before">
+                                <strong>查看我的所有合同状态</strong>
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         </li>
@@ -187,8 +182,8 @@
                         <li>
                             <a href="#">
                                 <div>
-                                    <i class="fa fa-comment fa-fw"></i> New Comment
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                    <i class="fa fa-comment fa-fw"></i> 新消息
+                                    <span class="pull-right text-muted small">4分钟之前</span>
                                 </div>
                             </a>
                         </li>
@@ -196,8 +191,8 @@
                         <li>
                             <a href="#">
                                 <div>
-                                    <i class="fa fa-twitter fa-fw"></i> 3 New Followers
-                                    <span class="pull-right text-muted small">12 minutes ago</span>
+                                    <i class="fa fa-twitter fa-fw"></i> 新消息
+                                    <span class="pull-right text-muted small">12分钟之前</span>
                                 </div>
                             </a>
                         </li>
@@ -205,8 +200,8 @@
                         <li>
                             <a href="#">
                                 <div>
-                                    <i class="fa fa-envelope fa-fw"></i> Message Sent
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                    <i class="fa fa-envelope fa-fw"></i> 消息已发送
+                                    <span class="pull-right text-muted small">4分钟之前</span>
                                 </div>
                             </a>
                         </li>
@@ -214,27 +209,13 @@
                         <li>
                             <a href="#">
                                 <div>
-                                    <i class="fa fa-tasks fa-fw"></i> New Task
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
+                                    <i class="fa fa-tasks fa-fw"></i>新任务
+                                    <span class="pull-right text-muted small">4分钟之前</span>
                                 </div>
                             </a>
                         </li>
                         <li class="divider"></li>
-                        <li>
-                            <a href="#">
-                                <div>
-                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a class="text-center" href="#">
-                                <strong>See All Alerts</strong>
-                                <i class="fa fa-angle-right"></i>
-                            </a>
-                        </li>
+                    
                     </ul>
                     <!-- /.dropdown-alerts -->
                 </li>
@@ -244,9 +225,10 @@
                         <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="pages/UserProfile.jsp"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                  
+                        <li><a href="UserProfile.jsp"><i class="fa fa-user fa-fw"></i> <%=name1 %></a>
                         </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                        <li><a href="UserSettings.jsp"><i class="fa fa-gear fa-fw"></i> 完善个人信息</a>
                         </li>
                         <li class="divider"></li>
                         <li><a href="login.jsp"><i class="fa fa-sign-out fa-fw"></i> 注销用户</a>
@@ -261,115 +243,70 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </span>
-                            </div>
-                            <!-- /input-group -->
-                        </li>
-                         <li>
-                            <a href="#"><i class="fa fa-dashboard fa-fw"></i><b> --------合同管理-------</b></a>
-                        </li>
+                        
+                         
                         <li>
                             <a href="#"><i class="fa fa-dashboard fa-fw"></i> 起草合同<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">进行起草</a>
+                                    <a href="Draft.jsp">进行起草</a>
                                 </li>
-                                <li>
-                                    <a href="morris.html">待定稿合同</a>
-                                </li>
-                                <li>
-                                    <a href="morris.html">已定稿合同</a>
-                                </li>
+                               
                             </ul>
                         </li>
+                        
                         <li>
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 分配合同<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-table fa-fw"></i> 会签合同<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="flot.html">Flot Charts</a>
+                                    <a href="CounterSignServlet?type=before">待会签合同</a>
                                 </li>
                                 <li>
-                                    <a href="morris.html">Morris.js Charts</a>
+                                    <a href="CounterSignServlet?type=after">已会签合同</a>
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-table fa-fw"></i> 会签合同</a>
-                        </li>
-                        <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i>定稿合同</a>
+                            <a href="#"><i class="fa fa-edit fa-fw"></i>定稿合同<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="FinalizedServlet?type=before">待定稿合同</a>
+                                    <a href="FinalizedServlet?type=after">已定稿合同 </a>
+                                    
+                                </li>
+                               
+                            </ul>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-wrench fa-fw"></i>审批合同<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="panels-wells.html">Panels and Wells</a>
+                                    <a href="ApproveServlet?type=before">待审批合同</a>
+                                    <a href="ApproveServlet?type=after">已审批合同 </a>
+                                    
                                 </li>
-                                <li>
-                                    <a href="buttons.html">Buttons</a>
-                                </li>
-                                <li>
-                                    <a href="notifications.html">Notifications</a>
-                                </li>
-                                <li>
-                                    <a href="typography.html">Typography</a>
-                                </li>
-                                <li>
-                                    <a href="icons.html"> Icons</a>
-                                </li>
-                                <li>
-                                    <a href="grid.html">Grid</a>
-                                </li>
+                               
                             </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
                         <li>
                             <a href="#"><i class="fa fa-sitemap fa-fw"></i> 签订合同<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
+                           <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="#">Second Level Item</a>
+                                    <a href="SignServlet?type=before">待签订合同</a>
+                                    <a href="SignServlet?type=after">已签订合同 </a>
+                                    
                                 </li>
-                                <li>
-                                    <a href="#">Second Level Item</a>
-                                </li>
-                                <li>
-                                    <a href="#">Third Level <span class="fa arrow"></span></a>
-                                    <ul class="nav nav-third-level">
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Third Level Item</a>
-                                        </li>
-                                    </ul>
-                                    <!-- /.nav-third-level -->
-                                </li>
+                               
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        <li class="active">
-                            <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
+                        
+                       <li>
+                            <a href="#"><i class="fa fa-sitemap fa-fw"></i> 我的合同<span class="fa arrow"></span></a>
+                           <ul class="nav nav-second-level">
                                 <li>
-                                    <a class="active" href="blank.html">Blank Page</a>
+                                    <a href="StateServlet?type=before">查看我起草合同的状态</a>
                                 </li>
-                                <li>
-                                    <a href="login.html">Login Page</a>
-                                </li>
+                               
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
