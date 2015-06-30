@@ -60,7 +60,7 @@ public class PermissionServlet extends HttpServlet {
 			boolean t = us.updatePermission(sid, srole);
 			System.out.println(t);
 		}
-		response.sendRedirect("logsuccess.jsp");
+		response.sendRedirect("pages/UserSettings.jsp");
 	}
 
 }
