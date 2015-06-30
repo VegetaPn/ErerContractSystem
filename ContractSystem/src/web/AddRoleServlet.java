@@ -55,7 +55,7 @@ public class AddRoleServlet extends HttpServlet {
 				"SCRZ"};
 		String[] sp = {",",",",",",",",",",",",",",",",",",",",",",",",",",",",",",
 				",",",",",",",",",",",",",",",",",",",",",",",",",",",",""};
-		rFuncId = "";
+		rFuncId = "006,";
 		rName = request.getParameter("newrolename");
 		rDesc = request.getParameter("newroledesc");
 		
