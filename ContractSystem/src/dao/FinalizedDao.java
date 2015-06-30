@@ -23,7 +23,7 @@ public class FinalizedDao {
 			e.printStackTrace();
 		}
 		//String sql="select con_id from t_contract_state where type>3  ";
-		String sql="select t_contract_state.con_id,t_contract.user_id,t_contract.customer,t_contract.name,t_contract.content,t_contract.beginTime,t_contract.endTime from t_contract_process,t_contract where "
+		String sql="select t_contract_state.con_id,t_contract.user_id,t_contract.customer,t_contract.name,t_contract.content,t_contract.beginTime,t_contract.endTime from t_contract_state,t_contract where "
 				+ "t_contract_state.con_id=t_contract.id and t_contract_state.type>3 and t_contract.user_id="+use_id;
 		
 		ResultSet rs=null;
@@ -115,7 +115,7 @@ public class FinalizedDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String sql="select t_contract_state.con_id,t_contract.user_id,t_contract.customer,t_contract.name,t_contract.content,t_contract.beginTime,t_contract.endTime from t_contract_process,t_contract where "
+		String sql="select t_contract_state.con_id,t_contract.user_id,t_contract.customer,t_contract.name,t_contract.content,t_contract.beginTime,t_contract.endTime from t_contract_state,t_contract where "
 				+ "t_contract_state.con_id=t_contract.id and t_contract_state.type=3 and t_contract.user_id="+use_id;
 		
 		ResultSet rs=null;

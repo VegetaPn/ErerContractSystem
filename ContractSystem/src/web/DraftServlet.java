@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.AttachDao;
 import dao.DraftDao;
 /**
  * Servlet implementation class DraftServlet
@@ -135,6 +136,7 @@ public class DraftServlet extends HttpServlet {
 				   }
 				   System.out.println("ContacrN:"+ContractN);
 				   File realFile=new File("d:/xyk0058/"+ContractN+"/",fileName);
+				   AttachDao.attach(ContractN, fileName);//输入到附件表中
 				   parent = realFile.getParentFile();
 					 if(parent!=null && !parent.exists()){ 
 						 parent.mkdirs();

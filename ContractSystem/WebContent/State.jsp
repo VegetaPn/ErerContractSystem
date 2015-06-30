@@ -364,6 +364,9 @@
                         
                     
                         <td class="sorting_1"><%=((Contract)contracts.get(i)).getName()%></td>
+                         <%if (state.get(i)==-1) {%>
+                          <td><span style="color: rgb(255,122,0)"> 合同审批被拒绝</span></td>
+                        <%} %>
                          <%if (state.get(i)==1) {%>
                         <td><span style="color: rgb(255,0,0)"> 等待分配</span></td>
                         <%} %>
@@ -432,7 +435,7 @@
                                             <p>管理员已分配此合同的审批人：</p>
                                            <%for(int b=0;b<list2.size();b++){ %><p> <%=list2.get(b) %></p><%} %>
                                            
-                                            <p>管理员已分配此合同的签订人人：</p>
+                                            <p>管理员已分配此合同的签订人：</p>
                                            <%for(int c=0;c<list3.size();c++){ %> <p><%=list3.get(c) %> </p><%} %>
                                           
                                         </div>
@@ -518,7 +521,12 @@
                                             <h4>客户：</h4><p><%=((Contract)contracts.get(i)).getCustomer()%></p>
                                             <h4>开始时间：</h4><p><%=((Contract)contracts.get(i)).getBeignTime()%></p>
                                             <h4>结束时间：</h4><p><%=((Contract)contracts.get(i)).getEndTime()%></p>
+                                            
                                             <h4>合同内容：</h4><p><%=((Contract)contracts.get(i)).getContent()%></p>
+                                        <% if(AttachDao.isAttach(((Contract)contracts.get(i)).getName())) {%>
+                                            <h4>下载附件：</h4>
+                                             <button type="button" class="btn btn-info" onclick="window.location.href='DownLoadServlet?name=<%= ((Contract)contracts.get(i)).getName()%>'">下载</button>
+                                            <%} %>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
