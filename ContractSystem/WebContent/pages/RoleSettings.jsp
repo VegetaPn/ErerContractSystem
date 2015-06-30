@@ -312,66 +312,27 @@
         	<input type="text" style="display:none" name="uproleid" value="<%=request.getParameter("paramid") %>" />
 			<table class="update" style="width:700px;">
 				<tr height="28">
-					<td width="100">Role name:</td>
+					<td width="100">角色名:</td>
 					<td><input type="text" name="newrolename" value="<%=request.getParameter("paramname") %>"/></td>
 				</tr>
 				<tr height="28">
-					<td>Description：</td>
+					<td>描述:</td>
 					<td>
 						<textarea rows="4" cols="40" name="newroledesc" style="width:400px;height:100px;" ><%=request.getParameter("paramdesc") %></textarea>
 					</td>
 				</tr>
 				<tr>
-					<td>Configure permission:</td>	
+					<td>设置权限:</td>	
 					<td>
-						<div>
-							Contract Management:<br />
-							<input name="QCHT" type="checkbox" value="001" />Draf Contract
-							<input name="DGHT" type="checkbox" value="002" />Edit Contract
-							<input name="CXHT" type="checkbox" value="003" />Query Contract
-							<input name="SCHT" type="checkbox" value="004" />Delete Contract
+						<div><br /><br />
+							合同权限:<br /><br />
+							<input name="QCHT" type="checkbox" value="001" />起草合同<br />
+							<input name="DGHT" type="checkbox" value="002" />会签合同<br />
+							<input name="CXHT" type="checkbox" value="003" />定稿合同<br />
+							<input name="SCHT" type="checkbox" value="004" />审核合同<br />
+							<input name="HQHT" type="checkbox" value="005" />签订合同<br />
 							<br /><br />
-							Process Management:<br />
-							<input name="HQHT" type="checkbox" value="005" />Cuntersign
-							<input name="SPHT" type="checkbox" value="006" />Approve
-							<input name="QDHT" type="checkbox" value="007" />Sign
-							<br />
-							<input name="FPHQ" type="checkbox" value="008" />Assign countersign
-							<input name="FPSP" type="checkbox" value="009" />Assign Approval
-							<input name="FPQD" type="checkbox" value="010" />Assign Sign
-							<br />
-							<input name="LCCX" type="checkbox" value="011" />Query Process
-							<br /><br />
-							User Management:<br />
-							<input name="XZYH" type="checkbox" value="012" />Add User
-							<input name="BJYH" type="checkbox" value="013" />Edit User
-							<input name="CXYH" type="checkbox" value="014" />Query User
-							<input name="SCYH" type="checkbox" value="015" />Delete User
-							<br /><br />
-							Role Management:<br />
-							<input name="XZJS" type="checkbox" value="016" />Add Role
-							<input name="BJJS" type="checkbox" value="017" />Edit Role
-							<input name="CXJS" type="checkbox" value="018" />Query Role
-							<input name="SCJS" type="checkbox" value="019" />Delete Role
-							<br /><br />
-							Function Operation:<br />
-							<input name="XZGN" type="checkbox" value="020" />Add Function
-							<input name="BJGN" type="checkbox" value="021" />Edit Function
-							<input name="CXGN" type="checkbox" value="022" />Query Function
-							<input name="SCGN" type="checkbox" value="023" />Delete Function
-							<br /><br />
-							Authorize:<br />
-							<input name="PZQX" type="checkbox" value="024" />Configure permission
-							<br /><br />
-							Customer Management:<br />
-							<input name="XZKH" type="checkbox" value="025" />Add Customer
-							<input name="BJKH" type="checkbox" value="026" />Edit Customer
-							<input name="CXKH" type="checkbox" value="027" />Query Customer
-							<input name="SCKH" type="checkbox" value="028" />Delete Customer
-							<br /><br />
-							System Log:<br />
-							<input name="CXRZ" type="checkbox" value="029" />Query Log
-							<input name="SCRZ" type="checkbox" value="030" />Delete Log
+							
 						</div>
 					</td>
 				</tr>
