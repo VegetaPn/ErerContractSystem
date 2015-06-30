@@ -41,13 +41,13 @@ public class DownLoadServlet extends HttpServlet {
 	    File fileLoad = null;
 		try {
 			fileLoad = new File("d:/xyk0058/"+name+"/",AttachDao.getPathByName(name));
+		    //the dialogbox of download file.
+		    response.setHeader("Content-disposition",
+		    "attachment;filename="+AttachDao.getPathByName(name));
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	    //the dialogbox of download file.
-	    response.setHeader("Content-disposition",
-	      "attachment;filename="+"cnotacts.txt");
 	    //set the MIME type.
 	    response.setContentType("application/x-tar");
 	    //get the file length.

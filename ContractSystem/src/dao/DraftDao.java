@@ -72,13 +72,13 @@ public class DraftDao {
 			//if(path==null){//path为空,没有附件
 		
 				String sql_contract="insert into t_contract(id,num,name,user_id,customer,content,beginTime,endTime,del) values("+new_contract.getId()+",'"+new_contract.getNum()+"','"+con_name+"',"+userid+",'"+customer+"','"+content+"','"+btime+"','"+etime+"',"+new_contract.getDel()+")";
-			System.out.println(sql_contract);
-			st.execute(sql_contract);
-			String sql_id="select id from t_contract where name='"+ con_name+"' ";
-			rs = st.executeQuery(sql_id);
-			rs.next();
-			contract_id=rs.getInt("id");
-			System.out.println(contract_id);
+				System.out.println(sql_contract);
+				st.execute(sql_contract);
+				String sql_id="select id from t_contract where name='"+ con_name+"' ";
+				rs = st.executeQuery(sql_id);
+				rs.next();
+				contract_id=rs.getInt("id");
+				System.out.println(contract_id);
 			//}else{//如果有附件的话要加文件的内容，加入到路径表中
 			/*String sql_contract="insert into t_contract(id,num,name,user_id,customer,content,beginTime,endTime,del) values("+new_contract.getId()+",'"+new_contract.getNum()+"','"+con_name+"',"+userid+",'"+customer+"','"+path+"','"+btime+"','"+etime+"',"+new_contract.getDel()+")";
 				st.execute(sql_contract);

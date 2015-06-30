@@ -61,9 +61,8 @@ public class DraftServlet extends HttpServlet {
 		  String BTime = request.getParameter("BTime");
 		  String ETime = request.getParameter("ETime");
 		  String path=request.getParameter("AFile");
-		  System.out.println(ETime);
 		  String text= request.getParameter("text1");
-		  System.out.println(path);
+		  String fileName = null;
 		  //if(path!=null){
 		  try{
 			  	
@@ -76,7 +75,7 @@ public class DraftServlet extends HttpServlet {
 					 parent.mkdirs();
 				 }
 				 FileOutputStream o=new FileOutputStream(temp);
-				 if(request.getContentLength()>297){
+				
 				   //write the upload content to the temp file.
 				   InputStream in=request.getInputStream();
 				   byte b[]=new byte[1024];
@@ -121,8 +120,8 @@ public class DraftServlet extends HttpServlet {
 				   //get the last location of the dir char.'//'.
 				   int position=secondLine.lastIndexOf("filename");
 				   //get the name of the upload file.
-				   String fileName=secondLine.substring(position+10,secondLine.length()-1);
-				   System.out.print("filename:"+fileName);
+				   fileName = secondLine.substring(position+10,secondLine.length()-1);
+				   System.out.print("fileName:"+fileName);
 				   //relocate to the head of file.
 				   random.seek(0);
 				   //get the location of the char.'Enter' in Line4.
@@ -136,11 +135,15 @@ public class DraftServlet extends HttpServlet {
 				   }
 				   System.out.println("ContacrN:"+ContractN);
 				   File realFile=new File("d:/xyk0058/"+ContractN+"/",fileName);
-				   AttachDao.attach(ContractN, fileName);//输入到附件表中
+				   
 				   parent = realFile.getParentFile();
 					 if(parent!=null && !parent.exists()){ 
 						 parent.mkdirs();
 					 }
+				   if(!fileName.equals("")){
+					 AttachDao.attach(ContractN, fileName);//输入到附件表中
+					 System.out.println("DRAFT");
+				   }
 				   RandomAccessFile random2=new RandomAccessFile(realFile,"rw");
 				   //locate the end position of the content.Count backwards 6 lines.
 				   random.seek(random.length());
@@ -170,16 +173,13 @@ public class DraftServlet extends HttpServlet {
 				   //delete the temp file.
 				   temp.delete();
 				   System.out.print("File upload success!");
-				 }
-				 else{
-					 System.out.print("No file!");
-				 }
+				   path = "d:/xyk0058/" + ContractN + "/" + fileName;
+				   
 				}
 				catch(IOException e){
 				 System.out.print("upload error.");
 				 e.printStackTrace();
 				}
-		  
 		 // }
 		 //System.out.println("wocaonima "+ContractN+CunName+path);
 		 // DateFormat df = new SimpleDateFormat("MM/dd/yyyy");//参数为你要格式化时间日期的模式
@@ -193,7 +193,7 @@ public class DraftServlet extends HttpServlet {
 			  System.out.println("a");
 			  DraftDao.add(path, ContractN, BTime, ETime, text, CunName,userid);
 			  //out.print("<script> alert('操作成功')</script>");
-			  response.sendRedirect("contract.jsp"); 
+			  response.sendRedirect("contract.jsp");
 			  return;
 		   }
 

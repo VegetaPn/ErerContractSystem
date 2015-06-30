@@ -96,6 +96,7 @@ public class AttachDao {
 			} catch (SQLException e2) {
 				// TODO Auto-generated catch block
 				e2.printStackTrace();
+				System.out.println("DRAFT WRONG");
 			}
 }
 }
