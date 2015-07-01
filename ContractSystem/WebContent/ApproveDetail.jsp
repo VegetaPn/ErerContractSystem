@@ -41,7 +41,7 @@
    <%@page import = "dao.LogDao"%>
         <%String apath = this.getServletContext().getRealPath("");
           String uname = (String) session.getAttribute("username");
-          LogDao.addaLog("审批了合同"+conname, apath, uname);
+          LogDao.addaLog("Approve a contract"+conname, apath, uname);
         %>
 </head>
 

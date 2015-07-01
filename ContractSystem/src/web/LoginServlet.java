@@ -82,7 +82,7 @@ public class LoginServlet extends HttpServlet {
 				response.sendRedirect(login_1);
 				return;
 			}
-			else if(login_role.getName().equals("operator"))
+			else //if(login_role.getName().equals("operator"))
 			{
 				response.sendRedirect("logsuccess.jsp");
 				return;
