@@ -11,12 +11,7 @@ import utils.DBUtil;
 public class RightDao {
 	public static boolean updateRight(String id, String upRight) {
 		Connection con = null;
-		int right = -1;
-		if(upRight.equals("admin")) { 
-			right = 1;
-		} else {
-			right = 2;
-		}
+		int right = RoleDao.getidbyName(upRight);
 		try {
 			con = DBUtil.getConnection();
 		} catch (APPException e1) {
@@ -27,6 +22,7 @@ public class RightDao {
 		try {
 			st = con.createStatement();
 			String sql = "update t_right set role_id = "+right+" where user_id='"+ id +"' ";
+			System.out.println(sql);
 			ResultSet rs = null;
 			rs = st.executeQuery(sql);
 			return true;

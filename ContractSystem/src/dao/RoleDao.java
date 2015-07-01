@@ -176,4 +176,28 @@ public class RoleDao {
 		}
 		return false;
 	}
+	
+	public static int getidbyName(String rname) {
+		Connection con = null;
+		try {
+			con = DBUtil.getConnection();
+		} catch (APPException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		Statement st = null;
+		try {
+			st = con.createStatement();
+			String sql = "select id from t_role where name = '"+rname+"'";
+			System.out.println(sql);
+			ResultSet rs = null;
+			rs = st.executeQuery(sql);
+			rs.next();
+			return Integer.parseInt(rs.getString(1));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return -1;
+	}
 }
