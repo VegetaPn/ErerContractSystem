@@ -332,7 +332,7 @@
           String cbank = request.getParameter("cbank");
           String ccct = request.getParameter("ccct"); 
         %>
-        <form method="post" action="../CustomerServlet">
+        <form method="post" action="../CustomerServlet?type=ad">
         <div id="page-wrapper" class="panel panel-default">
         	<%//out.println(cname+"<br />"); %>
         	<%//out.println(uname+"||"+cname+"||"+cadd+"||"+ctel+"||"+cfax+"||"+ccode+"||"+cbank+"||"+ccct); %>
